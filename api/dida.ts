@@ -4,7 +4,6 @@ const username = process.env.USERNAME
 const password = process.env.PASSWORD
 let token = ''
 
-login(username, password)
 const actionMap = {
   'list': 'batch/check/0',
   'completed': 'project/all/completed',
@@ -12,9 +11,12 @@ const actionMap = {
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  if (!token) {
+    await login(username, password)
+  }
   const { action = 'list' } = req.query
   const fetchRes: any = await fetchData(action).catch(fetchErr => {
-    return res.json({ err: JSON.stringify(fetchErr), username: username })
+    return res.json({ err: JSON.stringify(fetchErr), username: username, token })
   })
   return res.json(fetchRes.data)
 }
@@ -30,7 +32,7 @@ function fetchData(action) {
 }
 
 function login(username, password) {
-  axios({
+  return axios({
     url: 'https://api.dida365.com/api/v2/user/signon?wc=true&remember=true',
     method: 'POST',
     data: {
