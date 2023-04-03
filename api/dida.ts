@@ -16,7 +16,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
   const { action = 'list' } = req.query
   const fetchRes: any = await fetchData(action).catch(fetchErr => {
-    return res.json({ err: JSON.stringify(fetchErr), username: username, token })
+    token = ''
+    return res.json({ err: JSON.stringify(fetchErr), username: username })
   })
   return res.json(fetchRes.data)
 }
