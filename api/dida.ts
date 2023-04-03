@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import axios from 'axios'
-const username = import.meta.env.USERNAME
-const password = import.meta.env.PASSWORD
+const username = process.env.USERNAME
+const password = process.env.PASSWORD
 let token = ''
 
 login(username, password)
