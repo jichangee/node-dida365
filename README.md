@@ -2,9 +2,19 @@
 
 使用NodeJS代理滴答清单API，以JSON形式返回，可以方便部署到vercel
 
-### One-Click Deploy
+### 参数
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
+|  请求参数   | 响应说明  |
+|  ----  | ----  |
+| url?action=list  | 返回未完成列表 |
+| url?action=completed  | 返回已完成列表 |
+| url?action=trash  | 返回垃圾桶列表 |
+
+### 一键部署
+
+环境变量：
+ - USERNAME：滴答清单用户名
+ - PASSWORD：滴答清单用户密码
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/jichangee/node-dida365&env=USERNAME&env=PASSWORD&project-name=node-dida365&repository-name=node-dida365)
 
