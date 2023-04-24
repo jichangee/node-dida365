@@ -13,8 +13,8 @@
 ### 一键部署
 
 环境变量：
- - USERNAME：滴答清单用户名
- - PASSWORD：滴答清单用户密码
+ - USERNAME：滴答清单账号
+ - PASSWORD：滴答清单密码
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/jichangee/node-dida365&env=USERNAME&env=PASSWORD&project-name=node-dida365&repository-name=node-dida365)
 
